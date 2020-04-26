@@ -156,4 +156,10 @@ Datamod entirely protects against SQL injection attacks, as it uses SQL placehol
 
 ### Looking forward
 
-Looking forward, I hope to generify the query generator to support SQLite, PostgreSQL, and maybe even MongoDB and other NoSQL databases. If you wish to contribute, please do!
+Here are our goals for near future releases:
+- Generify the query generator to support SQLite, PostgreSQL, etc.
+- Add support for JOINs, not just subqueries
+- Properly document the serialization system
+- Support for MongoDB, maybe?
+
+We're looking for help, so if you wish to contribute, please do!

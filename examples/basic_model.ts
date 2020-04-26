@@ -5,8 +5,8 @@ import { IConnection } from '../src/conn/connection';
 const connection: IConnection = new MysqlConnection({
     hostname: '127.0.0.1',
     user: 'root',
-    password: '%rt4A%i#Zh%L2S:z2G',
-    database: 'delta-prod'
+    password: 'pass',
+    database: 'my-db'
 });
 
 class AccountQuery extends Query<Account> {

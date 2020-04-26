@@ -1,0 +1,28 @@
+{
+  "name": "datamod",
+  "author": "Conner Douglass <conner.douglass@gmail.com>",
+  "version": "1.0.0",
+  "description": "Database ORM with support for MySQL",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "homepage": "https://github.com/connerdouglass/datamod",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/connerdouglass/datamod.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "database",
+    "orm",
+    "mysql"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

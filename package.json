@@ -1,7 +1,7 @@
 {
   "name": "datamod",
   "author": "Conner Douglass <conner.douglass@gmail.com>",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Powerful TypeScript database modeling / ORM library",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,7 +20,8 @@
   "scripts": {
     "build": "tsc",
     "build:check": "tsc --noEmit",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "prepare": "npm run clean && npm run build"
   },
   "publishConfig": {
     "access": "public"

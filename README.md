@@ -157,6 +157,7 @@ Datamod entirely protects against SQL injection attacks, as it uses SQL placehol
 ### Looking forward
 
 Here are our goals for near future releases:
+- Add unit testing
 - Generify the query generator to support SQLite, PostgreSQL, etc.
 - Add support for JOINs, not just subqueries
 - Properly document the serialization system

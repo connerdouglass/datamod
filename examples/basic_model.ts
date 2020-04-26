@@ -5,8 +5,8 @@ import { IConnection } from '../src/conn/connection';
 const connection: IConnection = new MysqlConnection({
     hostname: '127.0.0.1',
     user: 'root',
-    password: 'pass',
-    database: 'datamod'
+    password: '%rt4A%i#Zh%L2S:z2G',
+    database: 'delta-prod'
 });
 
 class AccountQuery extends Query<Account> {
@@ -34,8 +34,9 @@ export class Account extends Model {
 
     // Fetch an account by identifier
     const acct: Account = await Account
-        .findById<AccountQuery>(10)
-        .whereAdult()
+        // .findById<AccountQuery>(10)
+        // .whereAdult()
+        .findOne()
         .exec();
 
     // Fetch an account by name

@@ -108,7 +108,7 @@ export class Query<T> {
         private modelClass: typeof Model) {
 
         // If some filters were provided, add them
-        if (filters) this.filters.push(...filters);
+        if (filters) this.filters.push(...filters.filter(f => !!f));
 
 	}
 

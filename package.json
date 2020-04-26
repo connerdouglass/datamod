@@ -24,5 +24,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@types/mysql": "^2.15.10",
+    "@types/node": "^13.13.2",
+    "mysql": "^2.18.1"
   }
 }

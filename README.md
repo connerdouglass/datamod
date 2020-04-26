@@ -42,6 +42,17 @@ export class Account extends Model {
         this.set('name', name);
     }
 
+    // If you have a `Car` class referenced by `Account` in a foreign key column,
+    // you can get/set that foreign object easily
+    public getCar(): Promise<Car> {
+        return this.getForeignObject<Car>('car', Car);
+    }
+
+    // Setters for foreign keys can take the foreign object itself, or just its identifier
+    public setCar(car: Car | number): void {
+        this.set('car', car);
+    }
+
 }
 
 // Fetch an account by name

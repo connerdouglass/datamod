@@ -102,7 +102,7 @@ const tall_accounts: Account[] = await Account
     .exec();
 ```
 
-You can even add parameters to make these custom query functions more dynamic. For instance, the `whereTall` could optionally take a boolean value, which can select for tall people, or not-tall people:
+You can even add arguments to make these custom query functions more dynamic. For instance, the `whereTall` could optionally take a boolean value, which can select for tall people, or not-tall people:
 
 ```typescript
 public whereTall(tall: boolean = true): this {
@@ -111,6 +111,8 @@ public whereTall(tall: boolean = true): this {
         .if(!tall).where('height_inches').isLessThan(72);
 }
 ```
+
+Then, query for tall people with `.whereTall()` and for non-tall people with `.whereTall(false)`. Simple!
 
 Among the benefits of this approach is that it improves your ability to encapsulate implementation details. Users of query classes don't need to know the names of columns. You can define behaviors and traits in your query classes, and hide the specifics from the user.
 

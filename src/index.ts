@@ -1,4 +1,5 @@
 export * from './conn/connection.mysql';
+export * from './conn/connection';
 export * from './table/table';
 export * from './Model';
 export * from './Model.types';

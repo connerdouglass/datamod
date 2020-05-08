@@ -11,10 +11,10 @@ type Newable<T> = {new(...args: any[]): T};
 /**
  * Options passed into the ModelClass decorator
  */
-interface ModelClassOptions {
+interface ModelClassOptions<TModel = any> {
     table: Table;
-    queryClass?: typeof Query;
-    serializerClass?: typeof Serializer;
+    queryClass?: Newable<Query<TModel>>;
+    serializerClass?: Newable<Serializer<TModel>>;
 }
 
 /**

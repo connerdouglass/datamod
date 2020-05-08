@@ -107,7 +107,7 @@ export abstract class Serializer<TObject = any, TSerialized = any, TFlag = strin
 			} else {
 
 				// The data object
-				let data: any;
+				let data: any = {};
 
 				// Run the action into this object
 				await action.action(object, data, ctx);

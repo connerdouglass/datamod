@@ -3,7 +3,8 @@ import { Table } from '../table/table';
 import { IConnection } from './connection';
 
 export interface IDatabaseConnectionConfig {
-    hostname: string;
+	hostname: string;
+	port?: number;
     user: string;
     password: string;
     database: string;
@@ -38,6 +39,7 @@ export class MysqlConnection implements IConnection {
 				this.connectionPool.push(mysql.createConnection({
 					host: this.config.hostname,
 					user: this.config.user,
+					port: this.config.port,
 					password: this.config.password,
 					database: this.config.database
 				}));

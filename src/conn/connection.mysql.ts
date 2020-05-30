@@ -21,7 +21,7 @@ export class MysqlConnection implements IConnection {
 		private config: IDatabaseConnectionConfig) {}
 
 	private connectionPool?: mysql.Connection[];
-	private connectionPoolMaximum: number = 20;
+	private connectionPoolMaximum: number = 1;
 	private lastConnectionIndex: number = -1;
 
 	private getConnection(): mysql.Connection {

@@ -801,12 +801,16 @@ export class Query<T> {
             if (typeof this.resultCountTarget === 'number') {
 
                 // If we're returning the count
-                if (this.resultType === QueryResultType.COUNT) return count;
-                else if (this.resultType === QueryResultType.COUNT_EQ) return count === this.resultCountTarget;
+                if (this.resultType === QueryResultType.COUNT_EQ) return count === this.resultCountTarget;
                 else if (this.resultType === QueryResultType.COUNT_LT) return count < this.resultCountTarget;
                 else if (this.resultType === QueryResultType.COUNT_LTE) return count <= this.resultCountTarget;
                 else if (this.resultType === QueryResultType.COUNT_GT) return count > this.resultCountTarget;
                 else if (this.resultType === QueryResultType.COUNT_GTE) return count >= this.resultCountTarget;
+
+            } else if (this.resultType === QueryResultType.COUNT) {
+
+                // Return the count
+                return count;
 
             }
 

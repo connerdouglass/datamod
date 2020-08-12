@@ -47,6 +47,14 @@ export class QueryWhere<T, R = Query<T>> {
         return this.conditionallyAddFilter({$equalsNot: value});
     }
 
+    public ciEquals(value: any): R {
+        return this.conditionallyAddFilter({$ciEquals: value});
+    }
+
+    public notCiEquals(value: any): R {
+        return this.conditionallyAddFilter({$ciEqualsNot: value});
+    }
+
     public isGreaterThan(value: any): R {
         return this.conditionallyAddFilter({$gt: value});
     }

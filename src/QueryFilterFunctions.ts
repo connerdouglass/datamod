@@ -22,6 +22,8 @@ export const QueryFilterFunctions: IQueryFilterFunctions = {
         '$notIn': $notIn,
         '$equals': $equals,
         '$equalsNot': $equalsNot,
+        '$ciEquals': $ciEquals,
+        '$ciEqualsNot': $ciEqualsNot,
         '$is': $is,
         '$isNot': $isNot,
         '$lt': $lt,
@@ -90,6 +92,17 @@ export function $equals(key: string, valueOrSymbol: any, placeholders: any[]): s
 
 export function $equalsNot(key: string, valueOrSymbol: any, placeholders: any[]): string {
     return `(NOT (${$equals(key, valueOrSymbol, placeholders)}))`;
+}
+
+export function $ciEquals(key: string, valueOrSymbol: any, placeholders: any[]): string {
+    if (valueOrSymbol === null) {
+        return `${key} IS NULL`;
+    }
+    return `LOWER(${key}) = LOWER(${insert(valueOrSymbol, placeholders)})`;
+}
+
+export function $ciEqualsNot(key: string, valueOrSymbol: any, placeholders: any[]): string {
+    return `(NOT (${$ciEquals(key, valueOrSymbol, placeholders)}))`;
 }
 
 export function $like(key: string, valueOrSymbol: any, placeholders: any[]): string {

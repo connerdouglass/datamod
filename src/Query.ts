@@ -458,7 +458,30 @@ export class Query<T> {
 			},
 			() => this);
 
-	}
+    }
+    
+    /**
+     * Adds a condition to the WHERE portion with a raw query condition
+     * @param query the SQL query string
+     * @param placeholders the array of placeholder values
+     */
+    public whereEval(query: string, placeholders?: any[]): this {
+        return this.dependOnIfResult(
+			() => {
+
+				// Add the filters to the array
+				this.filters.push([
+                    query,
+                    placeholders
+                ]);
+
+				// Return this query
+				return this;
+
+			},
+			() => this);
+
+    }
 
 	/**
 	 * Adds a series of conditions, and requires all to be true

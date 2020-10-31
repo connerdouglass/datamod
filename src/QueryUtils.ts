@@ -1,13 +1,15 @@
 import { $equals, QueryFilterFunctions } from './QueryFilterFunctions';
 
 interface IQueryFilter_Basic {[key: string]: string | number | boolean | IQueryFilter | any[];}
+type IQueryFilter_RawQuery = [string, any[] | undefined];
 interface IQueryFilter_And {$and: IQueryFilter[];}
 interface IQueryFilter_Or {$or: IQueryFilter[];}
 interface IQueryFilter_Nand {$nand: IQueryFilter[];}
 interface IQueryFilter_Nor {$nor: IQueryFilter[];}
 
 export type IQueryFilter =
-	IQueryFilter_Basic |
+    IQueryFilter_Basic |
+    IQueryFilter_RawQuery |
 	IQueryFilter_And |
 	IQueryFilter_Or |
 	IQueryFilter_Nand |
@@ -21,6 +23,17 @@ export class QueryUtils {
      * @param placeholders the placeholders to pair with "?" in the query
      */
     public static generateSelectWhere(filters: IQueryFilter, placeholders: any[]): string | null {
+
+        // If the filter is an array
+        if (Array.isArray(filters)) {
+
+            // Add the placeholders to the array
+            if (filters[1]) placeholders.push(...filters[1]);
+
+            // Return the query string
+            return filters[0];
+
+        }
 
         // Get the values
         const parts: any[] = Object
